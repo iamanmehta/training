@@ -1,0 +1,275 @@
+Preapared by:- Aman Kumar
+
+1. Java program to convert the temperature in Degree Centigrade to Fahrenheit
+Ans.1 
+import java.util.Scanner;
+
+public class TempConvert {
+
+	static double degreeToFr(double degree) {
+		double fr = (degree * 1.8) + 32;
+		return fr;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter degree: ");
+		double degree = sc.nextDouble();
+		
+		double fr=degreeToFr(degree);
+
+		System.out.println("Fahrenheit : "+String.format("%.2f", fr));
+	}
+}
+
+----------------------------------------------------
+2. Java program to find the circumference and area of a circle with a given radius
+Ans.2 import java.util.Scanner;
+    public class CircleAreaCircum {
+	static final double pie = 3.14;
+
+	static double areaCalc(double radius) {
+		double area = pie * radius * radius;
+		return area;
+	}
+
+	static double circumferenceCalc(double radius) {
+		double circumference = 2 * pie * radius;
+		return circumference;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the radius of a circle : ");
+		int radius = sc.nextInt();
+
+		double area = areaCalc(radius);
+		double circumference = circumferenceCalc(radius);
+
+		System.out.println("Circumference: " + String.format("%.2f", circumference));
+
+		System.out.println("Area: " + String.format("%.2f", area));
+
+	}
+}
+
+----------------------------------------------------
+3. Java program to display all integers within the range 100-150 whose sum of digits
+is an even number
+Ans.3 public class sum_even {
+
+	public static void main(String[] args) {
+	int r;
+	int n;
+	for(int i=100; i<=150;i++)
+	{
+		int sum=0;
+		n=i;
+		while(n!=0) {
+		r = n%10;
+		n= n/10;
+		sum+= r;
+		}
+		if(sum%2==0)
+			System.out.println(i);
+	}	
+	}
+
+}
+
+----------------------------------------------------
+4. Java program to find the roots of a quadratic equation
+Ans.4 import java.util.*;
+      public class roots {
+	public static void main(String[] args) {
+		System.out.println("Enter the value of a,b,c : ");
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        double c = sc.nextDouble();
+        double d = (b*b) - 4*a*c;
+        double r1,r2;
+        if(d>0)
+        {
+            r1 = ((-b + (Math.sqrt(d)))/(2*a));
+            r2 = ((-b - (Math.sqrt(d)))/(2*a));
+            System.out.println("The roots are : r1 = " + r1+ "r2 = " + r2);
+        }
+        else if(d==0)
+        {
+            r1 = ((-b + (Math.sqrt(d)))/(2*a));
+            System.out.println("The roots is : r = " + r1);
+        }
+        else
+        System.out.println("The roots are imaginary");
+	}
+      }
+
+----------------------------------------------------
+5. Java program to print the numbers from a given number n till 0 using recursion
+Ans.5 public class recursion {
+	void Recursion(int n) {
+		System.out.println(n);
+		if(n==0) {
+			return;
+		}
+		Recursion(n-1);
+	}
+	public static void main(String[] args) {
+		recursion r = new recursion();
+		r.Recursion(100);
+	}
+	
+----------------------------------------------------
+6. Two numbers are entered through the keyboard. Write a program to find the value of one
+number raised to the power of another. (Do not use Java built-in method)
+Ans.6 import java.util.Scanner;
+     public class power {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter the first number :  ");
+	int n1 = sc.nextInt();
+	System.out.println("Enter the second number :  ");
+	int n2 = sc.nextInt();
+	int t=n1;
+	for(int i =1 ; i<n2; i++)
+	{
+		n1 = n1*t;
+	}
+	System.out.println(n1);
+	}
+    }
+	
+----------------------------------------------------
+7. Write a do-while loop that asks the user to enter two numbers. The numbers should be added
+and the sum displayed. The loop should ask the user whether he or she wishes to perform the
+operation again. If so, the loop should repeat; otherwise it should terminate.
+Ans.7 import java.util.Scanner;
+    public class do_while {
+	public static void main(String[] args) {
+		char r;
+		do
+		{   
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the value of a :");
+			int a = sc.nextInt();
+			System.out.println("Enter the value of b :");
+			int b = sc.nextInt();
+			int sum;
+			sum = a+b;
+			System.out.println("The sum of two numbers : "+ sum);
+			System.out.println("Do you want to repeat it. Enter 'Y' if Yes or 'N' if No ");
+			 String s  = sc.next();
+			 r= s.charAt(0);
+			 if(r=='N')
+				 System.out.println("Thankyou!!");
+		}
+		while(r=='Y');		
+	   }
+       }
+	   
+----------------------------------------------------
+8. Write a program to enter the numbers till the user wants and at the end the program should
+display the largest and smallest numbers entered.
+Ans.8 import java.util.Scanner;
+public class minMaxInfinity {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		double number;
+		
+		double min = Double.POSITIVE_INFINITY;
+		double max = Double.NEGATIVE_INFINITY;
+		
+		while (true) {
+			
+			String line = sc.nextLine();
+			
+			if (line.equals("done")) {
+				break;
+			}
+			
+			number = Double.parseDouble(line);
+			
+			if (number < min) {
+				min = number;
+			}
+			
+			if (number > max) {
+				max = number;
+			}
+		}
+		
+		sc.close();
+		
+		System.out.println("Minimum value: " + String.format("%.0f", min));
+		System.out.println("Maximum value: " + String.format("%.0f", max));
+	}
+}
+
+----------------------------------------------------
+9. Write a program that generates a random number and asks the user to guess what the number is.
+If the user's guess is higher than the random number, the program should display "Too high, try
+again." If the user's guess is lower than the random number, the program should display "Too
+low, try again." The program should use a loop that repeats until the user correctly guesses the
+random number.
+Ans.9 
+import java.util.*;
+pimport java.util.Scanner;
+import java.util.Random;
+
+public class GuessNumber {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Random random = new Random();
+		int number = random.nextInt(20) + 1;
+		int guess;
+		do {
+			System.out.print("Enter your guess (1-20): ");
+			guess = sc.nextInt();
+			if (guess > number) {
+				System.out.println("Too high, try again.");
+			} else if (guess < number) {
+				System.out.println("Too low, try again.");
+			}
+		} while (guess != number);
+		System.out.println("You guessed it! The number was " + number);
+	}
+}
+
+----------------------------------------------------
+10. Write a program to compute the cosine of x. The user should supply x and a positive integer n.
+We compute the cosine of x using the series and the computation should use all terms in the
+series up through the term involving xn
+cos x = 1 - x2/2! + x4/4! - x6/6! .....
+import java.util.Scanner;
+Ans. 10
+public class Cosine {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter x: ");
+		double x = sc.nextDouble();
+		System.out.print("Enter n: ");
+		int n = sc.nextInt();
+
+		double result = 1.0;
+		double factorial = 1.0;
+		double xPower = 1.0;
+		double xSquared = x * x;
+
+		for (int i = 2; i <= n * 2; i += 2) {
+			factorial *= i * (i - 1);
+			xPower *= xSquared;
+			double term = xPower / factorial;
+			if (i % 4 == 2) {
+				result -= term;
+			} else {
+				result += term;
+			}
+		}
+
+		System.out.println("The cosine of " + x + " is " + String.format("%.2f", result));
+	}
+}
+
+----------------------------------------------------
