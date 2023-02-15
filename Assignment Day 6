@@ -1,0 +1,117 @@
+Ques 1. Specify the need and advantage of inheritance with an example
+Inheritence in simple terms, means to derive the peoperties of an superior entity
+to the smaller entity, for example, a child inherits from parents.
+In Java, Inheritance can be defined as when we have some shared behavior in
+sub classes, independent of the objects and with the use of inheritance the information is made manageable in a hierarchical order.
+
+The class which inherits the properties of other is known as subclass
+(derived class, child class) and the class whose properties are inherited
+is known as superclass (base class, parent class).
+---------------------------------------------------
+
+Ques 2. State the type of inheritance with real life examples
+i. Single Inheritance in Java
+In single inheritance, a single child class inherits data and methods from its parent class.
+In this case, a child class can access all the methods and the variables of the parent class.
+Real Life Example: A Child derives features from a parent.
+
+ii. Multilevel Inheritance in Java
+This represents a multi-tier inheritance wherein the child class inherits from a parent class which in itself is a child class to another parent class.
+Real Life Example: A child inheriting from his father who inherited from his grandfather.
+
+iii. Hierarchical Inheritance in Java
+In this type of inheritance, a single parent class passes its values and methods to multiple child classes.
+One class serves as the parent class and the rest of the classes are the child classes.
+
+iv. Multiple Inheritance in Java
+Multiple Inheritance, as the name suggests, means that multiple child classes can derive from one parent class.
+It  is not allowed in Java. However, it can be implemented by using Interfaces.
+
+v. Hybrid Inheritance in Java
+It is a mix of two or more types of inheritances.
+However, to implement multiple inheritance inside a hybrid inheritance, you have to use interfaces as Java does not support multiple inheritance.
+---------------------------------------------------
+
+Ques 3. Describe types of relationships with examples.
+There are 2 types of relationships
+i.) is-A.) When two objects are connected outerly. (Inheritance)
+	for example a "car" has a "engine".
+ii.) has-A.) When one object is connected with other object. (Aggression)(Composition).
+	for example a "Teacher" is a "person".
+---------------------------------------------------
+
+Ques 4. Will the code successfully compiled? If yes, what is the output?
+No, This program will not be compiled successfully, because:
+There cannot be multiple public classes in a progaram.
+---------------------------------------------------
+
+Ques 5
+No, this program will not comoile successfully
+There are following errors in the program: 
+In Class A,
+visibility of x is private it should be public to be accesible
+visibility of y is protected it should be public to be accesible
+visibility of y is not defiedit should be public to be accesible
+---------------------------------------------------
+
+Ques 6. What is the difference between Composition and Inheritance in OOP?
+In composition, a class contains one or more objects of other classes as private members to use the functionalities of other classes through their objects.
+
+Composition is a ‘has-a’ relationship between classes. For example, a car has an engine, and a person has a heart, etc.
+for example a "car" has a "engine".
+
+In inheritance, a class directly acquires all the attributes and methods of another class or classes and then extends or specializes them.
+
+Inheritance is an ‘is-a’ relationship between classes. For example, a teacher is a person, and an apple is a fruit, etc.
+for example a "Teacher" is a "person".
+---------------------------------------------------
+
+
+Ques 7. What is method hiding in Java?
+The method in the super class will be hidden by the one that is in the sub class. This mechanism is known as method hiding.
+
+Example of method hiding:
+ 
+class a{
+	   public static void func() {
+	      System.out.println("method of super class");
+	   }
+	}
+	public class First extends a {
+	   public static void func() {
+	      System.out.println("method of sub class");
+	   }
+	   
+	   public static void main(String args[] ) {
+	      First.func();
+	   }
+	}
+	
+---------------------------------------------------
+
+
+Ques 8. How to call a method of a subclass, if you are holding an object of the subclass in a reference
+variable of type superclass?
+To call the method of a subclass, we have to call it by the use of outer class as well as the subclass
+it is in.
+For example if we want to call the inner method from the following code:
+
+class outerClass {
+	class innerClass {
+		static void print() {
+				System.out.println("method called");
+		}
+	}
+}
+
+public class main {
+
+	public static void main(String[] args) {
+		outerClass.innerClass.print();
+	}
+
+}
+
+We will have to call as:
+outerClass.innerClass.print();
+---------------------------------------------------
