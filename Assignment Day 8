@@ -1,0 +1,465 @@
+Ques 1.Painting Shapes
+Ans. 1
+package myPackage;
+
+import java.util.Scanner;
+
+abstract class Shape{
+	String shape;
+	abstract void area();
+	
+	
+	public String toString() {
+		return "Shape: " + shape + "]";
+	}
+	
+}
+class Sphere extends Shape{
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter radius of Sphere: ");
+		double radius = new Scanner(System.in).nextInt();
+		
+		System.out.println("Paint needed to paint this Sphere: ");
+		System.out.println(4*(3.14)*(radius*radius));
+	}
+	
+}
+class Rectangle extends Shape{
+	
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter height of Rectangle: ");
+		int a = new Scanner(System.in).nextInt();
+		System.out.println("Enter breadth of Rectangle: ");
+		int b = new Scanner(System.in).nextInt();
+		
+		System.out.println("Paint needed to paint this Rectangle: ");
+		System.out.println(a*b);
+		
+	}
+}
+class Cylinder extends Shape{
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter radius of cylinder:- ");
+		double radius = new Scanner(System.in).nextDouble();
+		System.out.println("Enter height of cylinder:- ");
+		double h = new Scanner(System.in).nextDouble();
+		
+		System.out.println("Paint needed to paint this cylinder: ");
+		System.out.println(2*3.14*radius*(radius+h));
+	
+	}
+}
+
+
+public class sixFeb {
+	public static void main(String args[]) {
+		System.out.println("Shape: Sphere");
+		
+		Sphere sp = new Sphere();
+		sp.shapeName = "Sphere";
+		sp.area();
+		
+		System.out.println();
+		System.out.println("Shape: Retangle");
+		Rectangle rt = new Rectangle();
+		rt.shapeName = "Rectangle";
+		rt.area();
+		
+		System.out.println();
+		System.out.println("Shape: Cylinder");
+		Cylinder cy = new Cylinder();
+		cy.shapeName = "Cylinder";
+		cy.area();
+	}
+
+}
+-------------------------
+Ques 2. Is the following program written correctly? If yes, what value “result” variable will hold if you
+run the program?
+Ans.2
+Yes, the code is compiled correctly and the value “result” variable will hold : 20235
+------------------------
+Ques 3. What is the output of the following code?
+Ans. 3
+The output of the given code is :
+          Exception: Division by zero
+-------------------------
+Ques 4.  Consider you have an abstract class which is give below:
+Ans.4 abstract class Book{
+	String title;
+	abstract void setTitle(String s);
+	String getTitle()
+	{
+		return title;
+	}
+  }
+  class Book2 extends Book{
+	String name;
+	void setTitle(String name)
+	{
+		System.out.println("The name is "+ name);
+	}
+}
+public  class sixFeb {
+
+	public static void main(String[] args) {
+		Book2 obj = new Book2();
+		obj.setTitle("Aman");
+	}
+
+}
+-------------------------
+Ques 5. Create an abstract class 'Animals'....
+Ans. 5
+package my;
+
+abstract class Animal1 {
+	abstract void cats();
+	abstract void dogs();
+}
+	
+	class Cats extends Animal1 {
+		
+		@Override
+		void cats() {
+			System.out.println("Cats meow..");
+				
+		}
+		@Override
+		void dogs() {
+			System.out.println();
+		}	
+	}
+	class Dogs extends Animal1 {
+		@Override
+		void cats() {
+			System.out.println();
+		}
+		@Override
+		void dogs() {
+			System.out.println("Dog barks..");
+			
+		}	
+	
+		public class Animal{
+	public static void main(String[] args) {
+	
+		Cats cat = new Cats();
+		Dogs dog = new Dogs();
+		
+		dog.dogs();
+		cat.cats();
+	}
+
+	}
+
+}
+-------------------------
+Ques 6. We have to calculate the percentage...
+Ans. 6
+package myPackage;
+
+abstract class Marks {
+	abstract double getPercentage();
+
+}
+
+class A extends Marks {
+	double total = 0;
+
+	A(int sub1, int sub2, int sub3) {
+		total = sub1 + sub2 + sub3;
+	}
+
+	double getPercentage() {
+		double perc = ((total / 300) * 100);
+
+		return perc;
+	}
+
+}
+
+class B extends Marks {
+	double total = 0;
+
+	B(int sub1, int sub2, int sub3, int sub4) {
+		total = sub1 + sub2 + sub3+sub4;
+	}
+
+	double getPercentage() {
+		double perc = ((total / 400) * 100);
+
+		return perc;
+	}
+
+}
+
+public class sixFeb {
+
+	public static void main(String[] args) {
+		A a = new A(70,76,82);
+		double x=a.getPercentage();
+		System.out.println(x);
+		
+		B b = new B(50, 70, 80, 90);
+		double y=b.getPercentage();
+		System.out.println(y);
+	}
+}
+
+
+
+----------------
+Ques 7. Identify the error in the following code...
+Ans 7
+Main method is not present in the program
+Access specifier of method m1 should be public
+Class B should be not be public.
+
+---------------------
+Ques 8. . What will be the output of the following program?
+Ans 8
+Output is:
+One
+10Ques 1.Painting Shapes
+Ans. 1
+package myPackage;
+
+import java.util.Scanner;
+
+abstract class Shape{
+	String shape;
+	abstract void area();
+	
+	
+	public String toString() {
+		return "Shape: " + shape + "]";
+	}
+	
+}
+class Sphere extends Shape{
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter radius of Sphere: ");
+		double radius = new Scanner(System.in).nextInt();
+		
+		System.out.println("Paint needed to paint this Sphere: ");
+		System.out.println(4*(3.14)*(radius*radius));
+	}
+	
+}
+class Rectangle extends Shape{
+	
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter height of Rectangle: ");
+		int a = new Scanner(System.in).nextInt();
+		System.out.println("Enter breadth of Rectangle: ");
+		int b = new Scanner(System.in).nextInt();
+		
+		System.out.println("Paint needed to paint this Rectangle: ");
+		System.out.println(a*b);
+		
+	}
+}
+class Cylinder extends Shape{
+	String shapeName;
+	
+	@Override
+	void area() {
+		System.out.println("Enter radius of cylinder:- ");
+		double radius = new Scanner(System.in).nextDouble();
+		System.out.println("Enter height of cylinder:- ");
+		double h = new Scanner(System.in).nextDouble();
+		
+		System.out.println("Paint needed to paint this cylinder: ");
+		System.out.println(2*3.14*radius*(radius+h));
+	
+	}
+}
+
+
+public class sixFeb {
+	public static void main(String args[]) {
+		System.out.println("Shape: Sphere");
+		
+		Sphere sp = new Sphere();
+		sp.shapeName = "Sphere";
+		sp.area();
+		
+		System.out.println();
+		System.out.println("Shape: Retangle");
+		Rectangle rt = new Rectangle();
+		rt.shapeName = "Rectangle";
+		rt.area();
+		
+		System.out.println();
+		System.out.println("Shape: Cylinder");
+		Cylinder cy = new Cylinder();
+		cy.shapeName = "Cylinder";
+		cy.area();
+	}
+
+}
+-------------------------
+Ques 2. Is the following program written correctly? If yes, what value “result” variable will hold if you
+run the program?
+Ans.2
+Yes, the code is compiled correctly and the value “result” variable will hold : 20235
+------------------------
+Ques 3. What is the output of the following code?
+Ans. 3
+The output of the given code is :
+          Exception: Division by zero
+-------------------------
+Ques 4.  Consider you have an abstract class which is give below:
+Ans.4 abstract class Book{
+	String title;
+	abstract void setTitle(String s);
+	String getTitle()
+	{
+		return title;
+	}
+  }
+  class Book2 extends Book{
+	String name;
+	void setTitle(String name)
+	{
+		System.out.println("The name is "+ name);
+	}
+}
+public  class sixFeb {
+
+	public static void main(String[] args) {
+		Book2 obj = new Book2();
+		obj.setTitle("Aman");
+	}
+
+}
+-------------------------
+Ques 5. Create an abstract class 'Animals'....
+Ans. 5
+package my;
+
+abstract class Animal1 {
+	abstract void cats();
+	abstract void dogs();
+}
+	
+	class Cats extends Animal1 {
+		
+		@Override
+		void cats() {
+			System.out.println("Cats meow..");
+				
+		}
+		@Override
+		void dogs() {
+			System.out.println();
+		}	
+	}
+	class Dogs extends Animal1 {
+		@Override
+		void cats() {
+			System.out.println();
+		}
+		@Override
+		void dogs() {
+			System.out.println("Dog barks..");
+			
+		}	
+	
+		public class Animal{
+	public static void main(String[] args) {
+	
+		Cats cat = new Cats();
+		Dogs dog = new Dogs();
+		
+		dog.dogs();
+		cat.cats();
+	}
+
+	}
+
+}
+-------------------------
+Ques 6. We have to calculate the percentage...
+Ans. 6
+package myPackage;
+
+abstract class Marks {
+	abstract double getPercentage();
+
+}
+
+class A extends Marks {
+	double total = 0;
+
+	A(int sub1, int sub2, int sub3) {
+		total = sub1 + sub2 + sub3;
+	}
+
+	double getPercentage() {
+		double perc = ((total / 300) * 100);
+
+		return perc;
+	}
+
+}
+
+class B extends Marks {
+	double total = 0;
+
+	B(int sub1, int sub2, int sub3, int sub4) {
+		total = sub1 + sub2 + sub3+sub4;
+	}
+
+	double getPercentage() {
+		double perc = ((total / 400) * 100);
+
+		return perc;
+	}
+
+}
+
+public class sixFeb {
+
+	public static void main(String[] args) {
+		A a = new A(70,76,82);
+		double x=a.getPercentage();
+		System.out.println(x);
+		
+		B b = new B(50, 70, 80, 90);
+		double y=b.getPercentage();
+		System.out.println(y);
+	}
+}
+
+
+
+----------------
+Ques 7. Identify the error in the following code...
+Ans 7
+Main method is not present in the program
+Access specifier of method m1 should be public
+Class B should be not be public.
+
+---------------------
+Ques 8. . What will be the output of the following program?
+Ans 8
+Output is:
+One
+10
