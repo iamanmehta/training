@@ -1,0 +1,516 @@
+Ques 1..Write a program to check entered number is Palindrome or not. 
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		       Scanner sc=new Scanner(System.in);
+		       
+		       System.out.println("Enter a Number: ");
+		       int num = sc.nextInt();
+		       int rev = 0, remainder;
+		       
+		       int n = num;
+		       
+		       while (num != 0) {
+		         remainder = num % 10;
+		         rev = rev * 10 + remainder;
+		         num /= 10;
+		       }
+		       
+		       if (n == rev) {
+		         System.out.println(n + " is a palindrome number");
+		       }
+		       else {
+		         System.out.println(n + " is not a palindrome number");
+		       }
+		     }
+	}
+
+
+Ques 2.. Write a program to swap first and last digits of any number.
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		 
+		   {
+		      int num, temp, digits=0, rem, remTemp, rev=0, r, revTemp, digitsTemp;
+		      Scanner sc = new Scanner(System.in);
+		      
+		      System.out.print("Enter the Number: ");
+		      num = sc.nextInt();
+		      
+		      temp = num;
+		      while(temp>0)
+		      {
+		         digits++;
+		         temp = temp/10;
+		      }
+		      
+		       
+		       
+		           temp = num;
+		           while(temp>0)
+		           {
+		              rem = temp%10;
+		              rev = (rev*10) + rem;
+		              temp = temp/10;
+		           }
+		           r = rev;
+		           rev = 0;
+		           temp = num;
+		           digitsTemp = digits;
+		           while(temp>0)
+		           {
+		              remTemp = r%10;
+		              if(digitsTemp==digits || digitsTemp==1)
+		              {
+		                 rem = temp%10;
+		                 rev = (rev*10) + rem; 
+		              }
+		              else
+		              {
+		            	  rev = (rev*10) + remTemp;
+		              }
+		              r = r/10;
+		              temp = temp/10;
+		              digitsTemp--;
+		           }
+		           System.out.println("Reversed number is: = " +rev);
+		        
+		    
+		   }
+		              
+		  
+	}
+}
+
+Ques 3.. Write a program to print Fibonacci series up to n terms.
+
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		 
+		   {
+		      Scanner sc = new Scanner(System.in);
+		      
+		      System.out.println("Enter Starting Number");
+		      int n = sc.nextInt();
+		      
+		      int begin = 0, second = 1;
+		      System.out.println("Fibonacci numbers upto " + n + " are: ");
+
+		      for (int i = 1; i <= n; ++i) {
+		        System.out.print(begin + ", ");
+
+		        int next = begin + second;
+		        begin = second;
+		        second = next;
+		      }
+		              
+		  
+	}
+	}
+}
+
+
+
+Ques. 4.. Write a program to create Simple Calculator using switch case.
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		
+		
+		
+		System.out.println("Calculator");
+		System.out.println("Press 1 for Addition");
+		System.out.println("Press 2 for Subtraction");
+		System.out.println("Press 3 for Multiplication");
+		System.out.println("Press 4 for Division");
+		
+		int choice=sc.nextInt();
+		
+		System.out.println("Enter First Number");
+		int n1 = sc.nextInt();
+
+		System.out.println("Enter Second Number");
+		int n2 = sc.nextInt();
+
+		switch (choice) {
+
+		case 1:
+			int sum = n1 + n2;
+
+			System.out.println("Sum of " + n1 + " and " + n2 + " is: " + sum);
+			break;
+
+		case 2:
+			int minus = n2 - n1;
+			System.out.println("Subtract of " + n1 + " and " + n2 + " is: " + minus);
+			break;
+
+		case 3:
+			int product = n2 * n1;
+			System.out.println("Product of " + n1 + " and " + n2 + " is: " + product);
+			break;
+
+		case 4:
+			int divide = n2 / n1;
+//				float remainder= n2%n1;
+			System.out.println("Result of division of " + n1 + " and " + n2 + " is: ");
+			break;
+		}
+		
+		class m{
+			void menu() {
+				System.out.println("Calculator");
+				System.out.println("Press 1 for Addition");
+				System.out.println("Press 2 for Subtraction");
+				System.out.println("Press 3 for Multiplication");
+				System.out.println("Press 4 for Division");
+				}
+		}
+
+	}
+}
+
+
+Ques 5.. Write a program to find maximum and minimum element in an array. 
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		 
+		
+		       Scanner sc=new Scanner(System.in);
+		       int arr[]=new int[5];
+		       
+		       int smallest=Integer.MAX_VALUE;
+		       int largest=Integer.MIN_VALUE;
+		       
+		       for(int i=0;i<=4;i++)
+		       {
+		    	   System.out.println("Enter Element for "+i+" position: ");  
+		         arr[i]=sc.nextInt();
+		         if(arr[i]<smallest)
+		           {
+		        	 smallest=arr[i];
+		           }
+		         if(arr[i]>largest)
+		         {
+		        	 largest=arr[i];
+		         }
+		       }
+		       System.out.println("Largest element is: "+largest);
+		       System.out.println("Smallest element is: "+smallest);
+		 
+	}
+}
+
+
+Ques 6.. Write a program to insert an element in an array.
+
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = new int[2];
+
+		System.out.println("Enter First Value to insert into the array: ");
+		int value1 = sc.nextInt();
+		
+		System.out.println("Enter Second to insert into the array: ");
+		int value2 = sc.nextInt();
+
+		arr[0] = value1;
+		arr[1] = value2;
+		
+		System.out.println("Values in array are: "+arr[0]+", "+arr[1]);
+
+	}
+}
+
+
+Ques 7.. Write a program to print all unique elements in the array.
+
+
+import java.util.Scanner;
+
+
+
+class Main {
+
+	public static void main(String[] args) {
+
+		int arr[] = { 9, 7, 5, 9, 5, 7, 8, 6 };
+
+		System.out.println("Unique elements of the array are: ");
+
+		for (int i = 0; i < arr.length; i++) {
+
+			int count = 0;
+
+			for (int j = 0; j < arr.length; j++) {
+
+
+				if (arr[i] == arr[j]) {
+
+					count++;
+
+				}
+
+			}
+
+			if (count == 1) {
+
+				System.out.print(arr[i] + " ");
+
+			}
+		}
+	}
+
+}
+
+
+
+Ques 8.. Write a program to count frequency of each element in an array
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		int[] arr = new int[] { 55, 88, 77, 55, 88, 66 ,39, 55, 88, 77, 66, 39};
+
+		int[] ax = new int[arr.length];
+		int traversed = 1;
+		for (int i = 0; i < arr.length; i++) {
+			int count = 1;
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					count++;
+
+					ax[j] = traversed;
+				}
+			}
+			if (ax[i] != traversed)
+				ax[i] = count;
+		}
+		for (int i = 0; i < ax.length; i++) {
+			
+			if (ax[i] != traversed)
+				
+				System.out.println("Element: " + arr[i] + " Times: " + ax[i]);
+			
+		}
+
+	}
+}
+
+
+Ques 9.. Write a program to sort array elements in ascending order.
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = new int[3];
+
+		System.out.println("Enter Array Elements in any order: ");
+
+		for (int i = 0; i < arr.length; i++) {
+
+			arr[i] = sc.nextInt();
+
+		}
+
+	
+		System.out.print("Unsorted array is: ");
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i]+" ");
+
+		}
+
+		Arrays.sort(arr);
+
+		System.out.println(" ");
+
+		System.out.print("Sorted array is: ");
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i]+" ");
+
+		}
+
+	}
+
+
+}
+
+
+Ques 10.. Write a program to toggle case of each character of a string.
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a String: ");
+		String s = sc.nextLine();
+		String st = "";
+		for (int i = 0; i < s.length(); i=i+1) {
+			if (Character.isUpperCase(s.charAt(i)))
+				st = st + Character.toLowerCase(s.charAt(i));
+			else
+				st = st + Character.toUpperCase(s.charAt(i));
+		}
+		
+		
+		System.out.println("Toggled String: " + st);
+
+	}
+}
+
+
+Ques 11.. Write a program to find lowest frequency character in a string
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		   String s = "World and People";    
+		      int[] count = new int[s.length()];    
+		      char minChar = s.charAt(0);    
+		      
+		      char string[] = s.toCharArray();    
+	 
+		      for(int i = 0; i < string.length; i++) {    
+		          count[i] = 1;    
+		          for(int j = i+1; j < string.length; j++) {    
+		              if(string[i] == string[j] && string[i] != ' ' && string[i] != '0') {    
+		                  count[i]++;    
+		                      
+		                 
+		                  string[j] = '0';    
+		              }    
+		          }    
+		      }    
+		          
+	    
+		      int min = count[0];    
+		      for(int i = 0; i <count.length; i++) {    
+		              
+		   
+		          if(min > count[i] && count[i] != '0') {    
+		              min = count[i];    
+		              minChar = string[i];    
+		          }    
+		         
+		             
+		      }    
+		          
+		      System.out.println("Minimum occurring character: " + minChar);    
+		  }   
+
+	}
+	
+Ques 12.. WAP to find the occurrence of each digit in a number.
+
+	
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter a number: ");
+        long n = sc.nextLong();
+        
+        int Count[] = new int[(int) (n+1)];
+
+        while (n != 0) {
+            int d = (int)(n % 10);
+            Count[d] = Count[d] + 1;
+            n /= 10;
+        }
+        
+        for (int i = 0; i < 10; i++) {
+            if (Count[i] != 0) {
+                System.out.println(i + " comes " + Count[i]+" times");
+            }
+        }   
+		  }   
+
+	}
+
+
+Ques 13.. WAP to check Palindrome of a String.
+
+package myPackage;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a String");
+		 String S = sc.nextLine(); 
+				 String newS = "";
+		    
+		    int length = S.length();
+
+		    for (int i = (length - 1); i >=0; --i) {
+		    	newS = newS + S.charAt(i);
+		    }
+		    
+		    if(S.equals(newS)) {
+		    	 System.out.println(S + " is a Palindrome String.");
+		    }else {
+		    	System.out.println(S + " is not a Palindrome String.");
+		    }
+		        
+		  
+	}
+}
+
