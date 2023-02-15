@@ -1,0 +1,224 @@
+Ques 1
+Before java was introduced there were different programming languages made
+for different systems and operating systems but java solved this problem by
+introducing an Java Runtime Environment in the place of OSE that made it possible
+to run applications and java was also supported on most of the devices,
+
+Ques 2
+JVM.) JVM stands for Java Virtual Machine that in which the programs written on one
+system can be run on other computer syustems also that makes t one of the most useful feature
+of the programming language.
+
+JRE.) JRE stands for Java Runtime Environment that is required to be present on the computer
+system to be able to run and execute the java programs and applications.
+JRE makes the computer JRE dependent instead of being dependent on the OSE (Operating System Environment)
+
+JDL.) JDK stands for Java Development kit which consists of the various libraries and the
+requirements for development that includes various compiler files that are required forthe java
+development.
+
+Ques. 3
+Java is called an portable language because of its platform independence feature that makes
+ir write on any machine andd run on any machine that do not require the involvement of any
+operating system but rather works in java runtime environment.
+
+Ques. 4
+Platform dependent means that an application built for a single platform can only run on
+the machine that has the same platform. But if a language is platform independent, for example
+if language does not depend on the OS but rather it depend on the JRE then it can run on any machine that
+has JDK installed on it.
+
+Ques. 5
+In Compilation, the program is directly converted into low level language that can be
+executed by the machine after the compilation.
+In Interpretation the, the whole code is not converted into low level language but it is
+converted one by one and error is thrown is it is there.
+
+Ques. 6
+Backward compatibility refers to keeping the older features of the language for example java 18
+includes all the features of java 12 and developers can still combine and use the features of old version
+in the new version of that language and java supports it.
+
+Ques 7
+float and double both are used for decimal values and the difference is in their precision like, float can hold
+up to 4 decimal values while double can hold upto 8 decimal values.
+
+Ques. 8
+Java supports various types of operators such as arithmetic operators, logical operators, relational operators, Assignment operatots,  these
+operators can be used to perform various functions such as addition, comparison, etc. for example, int a=10. here = is the assignment operator.
+
+
+Ques. 9
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter a Number: ");
+        int num = sc.nextInt();
+        
+        if(num>0){
+            System.out.println("This number is positive");
+        }else if(num<0){
+            System.out.println("This number is negative");
+        }else if(num==0){
+            System.out.println("This number is 0");
+        }
+        
+        }
+    }
+	
+	
+Ques. 10
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter First Number: ");
+        int a=sc.nextInt();
+        System.out.println("Enter Second Number: ");
+        int b=sc.nextInt();
+        System.out.println("Enter Third Number: ");
+        
+        int c=sc.nextInt();
+    
+        int large=0;
+        
+        //checking if a is larger than b and c
+        if(a>b&&a>c){
+            large=large+a;
+        }
+        //checking if b is larger than a and c
+        if(b>a&&b>c){
+            large=large+b;
+        }
+        //checking if c is larger than a and b
+        if(c>a&&c>b){
+            large=large+c;
+        }
+        System.out.println("Largest number is: "+large);
+        }
+    }
+
+Ques. 11
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        
+        double SI;
+        
+        Scanner sc = new Scanner(System.in);
+        
+        
+        System.out.println("Enter Prinicple Amount: ");
+        int P=sc.nextInt();
+        
+        System.out.println("Enter Time in Years");
+        int T=sc.nextInt();
+        
+        System.out.println("Enter Intrest P.A");
+        double R=sc.nextDouble();
+    
+        SI=(P*R*T)/100;
+        System.out.println("The Intrest for amount "+P+" for "+T+" years is: "+SI);
+    }
+}
+
+
+Ques. 12
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter a Number: ");
+        int num=sc.nextInt();
+        if(num%5==0 && num%11==0){
+            System.out.println("Yes "+num+" is divisible by 5 and 11 both");
+        }
+            else{
+                System.out.println("NO "+num+" is not divisible by 5 and 11 both");
+            }
+        }
+    }
+	
+	
+Ques. 13
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter a Character");
+        char a=sc.next().charAt(0);
+        if (Character.isAlphabetic(a)){
+            System.out.println("It's an Alphabet");
+        }else if(Character.isDigit(a)){
+            System.out.println("It's an Number");
+        }else{
+            System.out.println("It's an Speical Character");
+        }
+        
+        
+        }
+    }
+	
+	
+Ques. 14
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter Buy Price: ");
+        int buyPrice=sc.nextInt();
+        
+        System.out.println("Enter Sell Price: ");
+        int sellPrice=sc.nextInt();
+        int margin;
+        
+        if(sellPrice>buyPrice){
+            margin=sellPrice-buyPrice;
+            System.out.println("It's a Profit of: "+margin);
+        }else{
+            margin=buyPrice-sellPrice;
+            System.out.println("It's a Loss of: "+margin);
+        }
+        
+        }
+    }
+	
+	
+Ques. 15
+import java.util.*;
+class Main {
+  public static void main(String []args){
+      
+    Scanner sc=new Scanner(System.in);
+    int sum=0;
+    int i=1;
+    
+    System.out.println("Ente Value for which you want the sum of prime numbers");
+    int n=sc.nextInt();
+    int t=n;
+    while(n!=0) {
+        
+      int count=0;
+      for(int j=1;j<=i;j++){
+        if(i%j==0){
+          count++;
+        }
+      }
+      if(count==2) {
+        sum=sum+i;
+        n=n-1;
+      }
+      i++;
+    }
+    System.out.println(sum+" is the sum of first "+n+" numbers");
+  }
+}
