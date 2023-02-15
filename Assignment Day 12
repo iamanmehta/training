@@ -1,0 +1,830 @@
+Prepared by:- Aman Kumar
+
+1. Write a program to create a file and write contents, save and close the file.
+Ans 1.
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileHnd {
+
+	void createFile() {
+		try {
+			File fi = new File("C:\\Users\\amank\\Desktop\\New\\file.txt");
+			fi.createNewFile();
+		} catch (IOException e) {
+			System.out.println("Path not found");
+		}
+	}
+
+	void writeData() {
+
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("C:\\Users\\amank\\Desktop\\New\\file.txt");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Data: ");
+		String data = sc.nextLine();
+		
+		sc.close();
+
+		try {
+			byte[] b = data.getBytes();
+			DataOutputStream dos = new DataOutputStream(fos);
+			dos.write(b);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		try {
+			fos.close();
+		} catch (Exception e) {
+			
+		}
+	}
+
+	public static void main(String[] args) {
+		FileHnd fh = new FileHnd();
+		fh.createFile();
+		fh.writeData();
+	}
+}
+
+2. Write a program to read file contents and display on console. 
+Ans.2
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class FileHnd {
+
+	void createFile() {
+		try {
+			File fi = new File("C:\\Users\\amank\\Desktop\\New\\file.txt");
+			fi.createNewFile();
+		} catch (IOException e) {
+			System.out.println("Path not found");
+		}
+	}
+
+	void writeData() {
+
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("C:\\Users\\amank\\Desktop\\New\\file.txt");
+		} catch (Exception e) {
+				System.out.println(e);
+		}
+
+		Scanner sc = new Scanner(System.in);
+		String data = sc.nextLine();
+
+		sc.close();
+
+		try {
+			byte[] b = data.getBytes();
+			DataOutputStream dos = new DataOutputStream(fos);
+			dos.write(b);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		try {
+			fos.close();
+		} catch (Exception e) {
+
+		}
+	}
+
+	void readData() {
+		try {
+			FileInputStream fis = new FileInputStream("C:\\Users\\amank\\Desktop\\New\\file.txt");
+			DataInputStream dis = new DataInputStream(fis);
+			InputStreamReader isr = new InputStreamReader(dis);
+			BufferedReader br = new BufferedReader(isr);
+
+			String dataBack;
+
+			try {
+				while ((dataBack = br.readLine()) != null) {
+					System.out.println(dataBack);
+				}
+			} catch (IOException e) {
+				System.out.println("File not FOund");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void main(String[] args) {
+		FileHnd fh = new FileHnd();
+		fh.createFile();
+		fh.writeData();
+		fh.readData();
+	}
+}
+
+3. Write a program to read numbers from a file and write even, odd and prime numbers to separate
+file.
+Ans. 3
+package day12;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class FileClassifier {
+	public static void main(String[] args) {
+		String inputFileName = "C:\\Users\\amank\\Desktop\\New\\numbers.txt";
+		String evenFileName = "C:\\Users\\amank\\Desktop\\New\\evenFile.txt";
+		String oddFileName = "C:\\Users\\amank\\Desktop\\New\\oddFile.txt";
+		String primeFileName = "C:\\Users\\amank\\Desktop\\New\\primeFile.txt";
+
+		try {
+
+			Scanner inputScanner = new Scanner(new File(inputFileName));
+
+			FileWriter evenFileWriter = new FileWriter(evenFileName);
+			FileWriter oddFileWriter = new FileWriter(oddFileName);
+			FileWriter primeFileWriter = new FileWriter(primeFileName);
+
+			while (inputScanner.hasNextInt()) {
+				int number = inputScanner.nextInt();
+
+				if (number % 2 == 0) {
+					evenFileWriter.write(number + "\n");
+				} else if (isPrime(number)) {
+					primeFileWriter.write(number + "\n");
+				} else {
+					oddFileWriter.write(number + "\n");
+				}
+			}
+
+			inputScanner.close();
+			evenFileWriter.close();
+			oddFileWriter.close();
+			primeFileWriter.close();
+
+			System.out.println("Numbers classified");
+		} catch (IOException e) {
+			System.out.println("Error Reading or Writing");
+			e.printStackTrace();
+		}
+	}
+
+	public static boolean isPrime(int n) {
+		if (n <= 1) {
+			return false;
+		}
+
+		for (int i = 2; i < n; i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+}
+
+4. Write a program to append content to a file.
+Ans 4
+package day12;
+
+import java.io.*;
+
+public class Appender {
+	public static void main(String[] args) {
+		String filename = "C:\\Users\\amank\\Desktop\\New\\thefile.txt";
+		String content = "This is the appended text";
+
+		try {
+			FileWriter fileWriter = new FileWriter(filename);
+			
+			fileWriter.write(content + "\n");
+
+			fileWriter.close();
+
+			System.out.println("File Written");
+		} catch (IOException e) {
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+	}
+}
+5. Write a program to compare two files.
+package day12;
+
+import java.io.BufferedReader;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class CompareFiles {
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader1 = new BufferedReader(new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile.txt"));
+		BufferedReader reader2 = new BufferedReader(new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile1.txt"));
+
+		String line1 = reader1.readLine();
+		String line2 = reader2.readLine();
+		boolean areEqual = true;
+		int lineNum = 1;
+
+		while (line1 != null || line2 != null) {
+			if (line1 == null || line2 == null) {
+				areEqual = false;
+
+				break;
+			} else if (!line1.equalsIgnoreCase(line2)) {
+				areEqual = false;
+				break;
+			}
+			line1 = reader1.readLine();
+			line2 = reader2.readLine();
+			lineNum++;
+		}
+
+		if (areEqual) {
+			System.out.println("Two files have same content.");
+		} else {
+			System.out.println("These files are different");
+			
+		}
+
+		reader1.close();
+		reader2.close();
+	}
+}
+
+
+-------------------------------------------------------
+6. Write a program to copy contents from one file to another file.
+package day12;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FilesCopier {
+
+	public static void main(String[] args) {
+		try {
+			FileInputStream fis = new FileInputStream("C:\\Users\\amank\\Desktop\\New\\thefile");
+			FileOutputStream fos = new FileOutputStream("C:\\Users\\amank\\Desktop\\New\\thefile1");
+			int b;
+			while ((b = fis.read()) != -1) {
+				fos.write(b);
+			}
+			fis.close();
+			fos.close();
+			System.out.println("File copied");
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}
+
+-------------------------------------------------------
+7. Write a program to merge two file to third file.
+package day12;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FilesMerger {
+
+	public static void main(String[] args) {
+		try {
+			FileInputStream fis1 = new FileInputStream("C:\\Users\\amank\\Desktop\\New\\thefile1");
+			FileInputStream fis2 = new FileInputStream("C:\\Users\\amank\\Desktop\\New\\thefile2");
+			FileOutputStream fos = new FileOutputStream("C:\\Users\\amank\\Desktop\\New\\thefile3");
+			int b;
+			while (fis1.available() > 0) {
+				b = fis1.read();
+				fos.write(b);
+			}
+			while (fis2.available() > 0) {
+				b = fis2.read();
+				fos.write(b);
+			}
+			fis1.close();
+			fis2.close();
+			fos.close();
+			System.out.println("Files merged successfully.");
+		} catch (ArrayIndexOutOfBoundsException | IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+	}
+}
+
+-------------------------------------------------------
+8. Write a program to count characters, words and lines in a text file.
+package day12;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ContentCounter {
+
+	public static void main(String[] args) {
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile1.txt"));
+			int characters = 0;
+			int words = 0;
+			int lines = 0;
+			String line;
+			while ((line = reader.readLine()) != null) {
+				lines++;
+				characters += line.length();
+				String[] wordsInLine = line.split("\\s+");
+				words += wordsInLine.length;
+			}
+			reader.close();
+			System.out.println("Characters: " + characters);
+			System.out.println("Words: " + words);
+			System.out.println("Lines: " + lines);
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}
+
+
+-------------------------------------------------------
+9. Write a program to remove a word from text file.
+Ans. 9
+package day12;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WordRemover {
+
+	public static void main(String[] args) {
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\amank\\Desktop\\New\\thefile1.txt"));
+			String line;
+			while ((line = reader.readLine()) != null) {
+				String newLine = line.replaceAll("Hello", "Hi");
+				writer.write(newLine + System.lineSeparator());
+			}
+			reader.close();
+			writer.close();
+			System.out.println("Word removed successfully.");
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}
+
+-------------------------------------------------------
+10. Write a program to remove specific line from a text file.
+package day12;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LineRemover {
+
+	public static void main(String[] args) {
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\amank\\Desktop\\New\\thefile1.txt"));
+			
+			int lineToRemove = Integer.parseInt("1");
+			int lineCount = 0;
+			
+			String line;
+			while ((line = reader.readLine()) != null) {
+				lineCount++;
+				if (lineCount != lineToRemove) {
+					writer.write(line + System.lineSeparator());
+				}
+			}
+			reader.close();
+			writer.close();
+			System.out.println("Line removed successfully.");
+		} catch (ArrayIndexOutOfBoundsException | IOException | NumberFormatException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}
+
+
+-------------------------------------------------------
+11. Write a program to remove empty lines from a text file.
+package day12;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class EmptyRemover {
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+
+		FileReader fr = new FileReader("C:\\Users\\amank\\Desktop\\New\\thefile1.txt");
+		BufferedReader br = new BufferedReader(fr);
+		FileWriter fw = new FileWriter("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+		String line;
+
+		while ((line = br.readLine()) != null) {
+			line = line.trim();
+			line = line.replaceAll("\\s+", " ");
+			fw.write(line);
+
+		}
+		fr.close();
+		fw.close();
+	}
+
+}
+
+-------------------------------------------------------
+12. Write a program to find occurrence of a word in a text file.
+package day12;
+
+import java.io.File;
+
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+
+public class WordsInFile {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		{
+			try {
+				File myobj = new File("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+				Scanner myReader = new Scanner(myobj);
+				while (myReader.hasNextLine()) {
+					String data = myReader.nextLine();
+					System.out.println(data);
+					
+					System.out.println("Enter char to check: ");
+					char c = sc.next().charAt(0);
+
+					int count = 0;
+					for (int i = 0; i < data.length() - 1; i++) {
+						if ((data.charAt(i) == c)) {
+							count++;
+						}
+					}
+
+					System.out.println(c+" comes "+count+" times in this file");
+
+				}
+
+			}
+
+			catch (FileNotFoundException e) {
+				System.out.println("error: "+e);
+			}
+		}
+	}
+}
+-------------------------------------------------------
+13. Write a program to count occurrences of a word in a text file.
+package day12;
+
+import java.io.File;
+
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+
+public class WordsInFile {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		{
+			try {
+				File myobj = new File("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+				Scanner myReader = new Scanner(myobj);
+				while (myReader.hasNextLine()) {
+					String data = myReader.nextLine();
+					System.out.println(data);
+					
+					System.out.println("Enter char to check: ");
+					char c = sc.next().charAt(0);
+
+					int count = 0;
+					for (int i = 0; i < data.length() - 1; i++) {
+						if ((data.charAt(i) == c)) {
+							count++;
+						}
+					}
+
+					System.out.println(c+" comes "+count+" times in this file");
+
+				}
+
+			}
+
+			catch (FileNotFoundException e) {
+				System.out.println("error"+e);
+			}
+		}
+	}
+}
+-------------------------------------------------------
+14. Write a program to count occurrences of all words in a text file.
+package day12;
+
+import java.io.*;
+import java.util.*;
+
+public class WordCount {
+
+  public static void main(String[] args) {
+
+    File inputFile = new File("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+    
+    Scanner inputScanner = null;
+    try {
+      inputScanner = new Scanner(inputFile);
+    } catch (FileNotFoundException e) {
+      System.out.println("Input file not found.");
+      e.printStackTrace();
+      return;
+    }
+
+    List<String> words = new ArrayList<>();
+
+    while (inputScanner.hasNextLine()) {
+      String line = inputScanner.nextLine();
+
+      String[] lineWords = line.split("\\s+");
+      for (String word : lineWords) {
+ 
+        word = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        if (!word.isEmpty()) {
+          words.add(word);
+        }
+      }
+    }
+
+    inputScanner.close();
+
+    Collections.sort(words);
+
+    int count = 1;
+    for (int i = 1; i < words.size(); i++) {
+      if (words.get(i).equals(words.get(i - 1))) {
+        count++;
+      } else {
+        System.out.println(words.get(i - 1) + ": " + count);
+        count = 1;
+      }
+    }
+ 
+    System.out.println(words.get(words.size() - 1) + ": " + count);
+  }
+}
+
+
+-------------------------------------------------------
+15. Write a program to find and replace a word in a text file.
+package day12;
+
+import java.io.*;
+import java.util.*;
+
+public class ReplaceWord {
+
+	public static void main(String[] args) {
+
+		File inputFile = new File("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+
+		Scanner inputScanner = null;
+		try {
+			inputScanner = new Scanner(inputFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("Input file not found.");
+			e.printStackTrace();
+			return;
+		}
+
+		File outputFile = new File("C:\\Users\\amank\\Desktop\\New\\thefile1.txt");
+
+		PrintWriter outputWriter = null;
+		try {
+			outputWriter = new PrintWriter(outputFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("Error creating output file.");
+			e.printStackTrace();
+
+		}
+
+		String find = "fg";
+		String replace = "hello";
+
+		while (inputScanner.hasNextLine()) {
+			String line = inputScanner.nextLine();
+
+			line = line.replaceAll(find, replace);
+
+			outputWriter.println(line);
+		}
+
+		inputScanner.close();
+
+		outputWriter.close();
+
+		System.out.println("Word replaced successfully.");
+	}
+}
+
+-------------------------------------------------------
+16. Write a program to replace specific line in a text file.
+package day12;
+
+import java.io.*;
+import java.util.*;
+
+public class LineReplacer {
+
+	public static void main(String[] args) {
+
+		File inputFile = new File("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+
+		Scanner inputScanner = null;
+		try {
+			inputScanner = new Scanner(inputFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("Input file not found.");
+			e.printStackTrace();
+			return;
+		}
+
+		File outputFile = new File("C:\\Users\\amank\\Desktop\\New\\thefile1.txt");
+
+		PrintWriter outputWriter = null;
+		try {
+			outputWriter = new PrintWriter(outputFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("Error");
+			e.printStackTrace();
+			return;
+		}
+
+		int lineNumber = 2;
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Line that you want to replace");
+		
+		String replacementLine = sc.nextLine();
+
+		int currentLine = 1;
+		while (inputScanner.hasNextLine()) {
+			String line = inputScanner.nextLine();
+			if (currentLine == lineNumber) {
+
+				outputWriter.println(replacementLine);
+			} else {
+
+				outputWriter.println(line);
+			}
+			currentLine++;
+		}
+
+		inputScanner.close();
+
+		outputWriter.close();
+
+		System.out.println("Line replaced");
+	}
+}
+
+-------------------------------------------------------
+17. Write a program to print source code of same program.
+package day12;
+
+import java.io.*;
+
+public class PrintSourceCode {
+	public static void main(String args[]) {
+		try {
+
+			FileInputStream fstream = new FileInputStream("C:\\Users\\amank\\eclipse-workspace\\AssiDay12\\src\\day12\\PrintSourceCode"+".java");
+			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+			
+			String s;
+			while ((s = br.readLine()) != null) {
+				System.out.println(s);
+			}
+			fstream.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+-------------------------------------------------------
+18. Write a program to convert uppercase to lowercase character and vice versa in a text file.
+package day12;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class CaseChange {
+	public static void main(String[] args) {
+		Path path = Paths.get("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+		try {
+			String content = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+			String convertedContent = convertCase(content);
+			Files.write(path, convertedContent.getBytes(StandardCharsets.UTF_8));
+			System.out.println("File content modified");
+		} catch (IOException e) {
+			System.out.println("An error occurred: " + e);
+		}
+	}
+
+	private static String convertCase(String content) {
+		char[] characters = content.toCharArray();
+		for (int i = 0; i < characters.length; i++) {
+			char c = characters[i];
+			if (Character.isUpperCase(c)) {
+				characters[i] = Character.toLowerCase(c);
+			} else if (Character.isLowerCase(c)) {
+				characters[i] = Character.toUpperCase(c);
+			}
+		}
+		return new String(characters);
+	}
+}
+
+-------------------------------------------------------
+19. Write a program to find properties of a file using stat() function.
+package day12;
+
+import java.io.*;
+
+import java.nio.file.*;
+import java.nio.file.attribute.*;
+
+public class CaseChange {
+	public static void main(String[] args) throws Exception {
+
+		Path path = FileSystems.getDefault().getPath("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+
+		BasicFileAttributeView view = Files.getFileAttributeView(path, BasicFileAttributeView.class);
+
+		BasicFileAttributes attribute = view.readAttributes();
+
+		System.out.print("Creation time: ");
+		System.out.println(attribute.creationTime());
+		System.out.print("Last Accessed: ");
+		System.out.println(attribute.lastAccessTime());
+
+		System.out.print("Last Modified: ");
+		System.out.println(attribute.lastModifiedTime());
+
+		System.out.println("Directory or not: " + attribute.isDirectory());
+
+		System.out.println("Size: " + attribute.size());
+	}
+}
+-------------------------------------------------------
+20. Write a program to check if a file or directory exists.
+package day12;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class CaseChange {
+	public static void main(String[] args) {
+		Path path = Paths.get("C:\\Users\\amank\\Desktop\\New\\thefile.txt");
+		if (Files.exists(path)) {
+			System.out.println("Yes, the file or directory exists");
+		} else {
+			System.out.println("No, the file or directory does not exist");
+		}
+	}
+}
+-------------------------------------------------------
