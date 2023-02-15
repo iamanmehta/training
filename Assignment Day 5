@@ -1,0 +1,546 @@
+Q 1.  State a real life example of encapsulation in java.
+
+The real life example of encapsulation in java may be refered to as a Shopping cart.
+In this the instance variables may include as items, total price and customer's name.
+Methods may be said as add item or remove item. The implement details are hidden from
+the outer world other than the customer. This ensures that the methods provided can access
+and modify the data.
+
+
+
+Q 2. Explain with an example how encapsulation helps in data hiding.
+
+class Employee Details {
+
+private String Name;
+
+private String Address;
+
+private int Id;
+
+public String getName () {
+
+return Name;
+
+public void setName (String name) {
+
+Name = name;
+
+public String getAddress() {
+
+return Address;
+
+}
+
+public void setAddress (String address) {
+
+Address = address;
+
+public int getId() {
+
+return Id;
+
+}
+
+public void setId(int id) {
+
+Id = id;
+
+}
+
+}
+
+public class Employee {
+
+public static void main (String[largs) {
+
+Employee Details obj = new Employee Details ();
+
+obj.setName ("Aman");
+
+obj.setAddress ("Haryana");
+
+obj. setId (12) ;
+
+System.out.printin(obj.getName()+*"+obj.getAddress()+*"+obj-getId());
+
+}
+
+}
+
+
+
+
+
+
+
+Q 3.  Explain the significance of POJO classes.
+POJO stands for Plain Old Java Objects.
+
+2. These are used to increase the readability ans re-usability.
+
+3. These increases the security of the code.
+
+4. These are not bound restricted.
+
+Example:- getters and setters.
+
+
+
+Q 4. Explain the need for Nested classes and types of Nested classes.
+1. Nested classes increases the use of encaplsulation.
+
+2. These classes makes code more readable.
+
+3. These classes creates maintainable code.
+
+4. These classes includes static methods and instance methods.
+
+5. These classes are used when reltaed classes are grouped in single class.
+
+6. Nested interfaces are within classes and within interfaces.
+
+
+
+Q 5.  State any 5 classes/Interfaces which are nested/Inner classes with example.
+
+String, ArrayList , Hashmap, Character , Inputstream.
+
+
+
+Q 6.  Write a program to sort array elements in descending order
+
+Ans 6. 
+
+package Assignment4;
+
+import java.util.Arrays;
+
+import java.util.Scanner;
+
+public class ArraySort {
+
+ public static void main(String[] args) {
+
+ Scanner sc = new Scanner(System.in);
+
+ System.out.print("Enter the size of the array: ");
+
+ int size = sc.nextInt();
+
+ int[] arr = new int[size];
+
+ System.out.print("Enter the elements of the array: ");
+
+ for (int i = 0; i < size; i++) {
+
+ arr[i] = sc.nextInt();
+
+ }
+
+ Arrays.sort(arr);
+
+ for (int i = arr.length - 1; i >= 0; i--) {
+
+ System.out.print(arr[i] + " ");
+
+ }
+
+ }
+
+}
+
+
+
+
+
+
+
+Q 7.  Write a program to check whether a string is palindrome or not. 
+
+package Assignment4;
+
+import java.util.*;
+
+public class stringPalindrome {
+
+
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner (System.in);
+
+		String str;
+
+		String rev = "" ;
+
+		
+
+		System.out.println("enter a string:-");
+
+		
+
+		str = sc.nextLine();
+
+		int length = str.length();
+
+		
+
+		
+
+		for (int i = length-1; i>=0; i--)
+
+		{
+
+			rev = rev + str.charAt(i);
+
+		}
+
+		if (str.equals(rev))
+
+		{
+
+			System.out.println(str+" is a palindrome");
+
+		}
+
+		else
+
+		{
+
+			System.out.println(str+" is not a palindrome");
+
+		}
+
+	}
+
+
+
+}
+
+
+
+Q 8. Write a program to find highest frequency character in a string.
+
+import java.util.*;
+
+public class frequency{
+
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the string:-");
+
+        String str = sc.nextLine();
+
+        int arr[] = new int[123];
+
+        int m = 0 , j = 0;
+
+        for(int i = 0 ; i <str.length();i++)
+
+        {
+
+            arr[str.charAt(i)]++;
+
+        }
+
+        for(int i = 0 ; i < arr.length;i++){
+
+            if(arr[i]!=0)
+
+            {
+
+                if(arr[i]>m)
+
+                {
+
+                    m = arr[i];
+
+                    j=i;
+
+                }
+
+            }
+
+        }
+
+        System.out.println((char)j +" have highest frequency in the string.");
+
+    }
+
+}
+
+
+
+
+
+Q 9. WAP to find the occurrence of each digit in a number.
+
+package Assignment4;
+
+import java.util.*;
+
+public class DigitOccur {
+
+
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner (System.in);
+
+		System.out.println("Enter a number:-");
+
+		int num = sc.nextInt();
+
+		
+
+		int[] digits = new int [10];
+
+		while (num>0)
+
+		{
+
+			int digit = num % 10;
+
+			digits[digit]++;
+
+			num/=10;
+
+		}
+
+		
+
+		for (int i = 0 ; i < 10; i++)
+
+		{
+
+			if (digits[i]>0)
+
+			{
+
+				System.out.println("The digit "+i+ " occurs " + digits[i]+ " times");
+
+			}
+
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+Q 10. WAP to reverse a string by capitalize the first letter of every word.
+
+Ans 10.
+
+
+
+import java.util.Scanner;
+
+public class Main {
+
+ public static String revCap(String string) {
+
+ String[] words = string.split(" ");
+
+ String result = "";
+
+ for (int i = words.length - 1; i >= 0; i--) {
+
+ String word = words[i];
+
+ result = result + Character.toUpperCase(word.charAt(0)) + word.substring(1) + " ";
+
+ }
+
+ return result.trim();
+
+ }
+
+ public static void main(String[] args) {
+
+ Scanner sc = new Scanner(System.in);
+
+ System.out.print("Enter a string: ");
+
+ String string = sc.nextLine();
+
+ sc.close();
+
+ String revCap = revCap(string);
+
+ System.out.println("Reversed and capitalized string: " + revCap);
+
+ }
+
+}
+
+
+
+
+
+Q 11. What will be the output of the following program?
+
+Ans 11. 
+
+Output:- 
+
+3131
+
+3131
+
+3131
+
+
+
+
+
+Q 12. Can you find out the error in the following code?
+
+Ans 12.  The static keyword from the methodB should be removed.
+
+
+
+Q 13. How do you access field ‘i’ of class ‘XYZ’ in the below example?
+
+Ans 13. To access field 'i' of class 'XYZ’ , first create an object and after that create the object of the inner class.
+
+					ABC ob = new ABC();
+
+					Abc.XYZ ob1 = ob.new XYZ();
+
+					
+
+ 
+
+Q 14. Create a package encapsulationTest in this package:
+
+Step 1: Create a class Student and Declare stdName, stdRollNo, and stdId variables private 
+
+in the class.
+
+Step 2: Apply public getter and setter method for each private vairable in the class named as
+
+ModelClass.
+
+Step 3. Create a public class EncapTest
+
+Step 4: Create the object of class Student by using new keyword.
+
+Step 5: Call setter method and set the value of variables.
+
+Step 6: Call getter method to read the value of variables and print it on console.
+
+
+
+Ans 14. 
+
+package encapsulationTest;
+
+class Student{
+
+	private String stdName;
+
+	private int stdRollNo;
+
+	private int stdId;
+
+	
+
+	public String getStdName() {
+
+		return stdName;
+
+	}
+
+	public void setStdName(String stdName) {
+
+		this.stdName = stdName;
+
+	}
+
+	public int getStdRollNo() {
+
+		return stdRollNo;
+
+	}
+
+	public void setStdRollNo(int stdRollNo) {
+
+		this.stdRollNo = stdRollNo;
+
+	}
+
+	public int getStdId() {
+
+		return stdId;
+
+	}
+
+	public void setStdId(int stdId) {
+
+		this.stdId = stdId;
+
+	}
+
+}
+
+class ModelClass{
+
+	void func()
+
+	{
+
+		Student object = new Student();
+
+		object.setStdName("Aman");
+
+		object.setStdRollNo(5311);
+
+		object.setStdId(132);
+
+		
+
+		object.getStdName();
+
+		object.getStdRollNo();
+
+		object.getStdId();
+
+		
+
+		System.out.println(object.getStdName());
+
+		System.out.println(object.getStdRollNo());
+
+		System.out.println(object.getStdId());
+
+	}
+
+}
+
+public class EncapTest {
+
+
+
+	public static void main(String[] args) {
+
+		ModelClass ob = new ModelClass();
+
+		ob.func();
+
+
+
+	}
+
+
+
+}
+
