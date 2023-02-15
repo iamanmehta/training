@@ -1,0 +1,257 @@
+Prepared by:- Aman Kumar
+
+Ques.1. Take values of length and breadth of a rectangle from user and check if it is square or not.
+import java.util.Scanner;
+class figure {
+	static void rectChecker(int length, int breadth) {
+		if (length == breadth) {
+			System.out.println("This is a Square of sides: " + length + "x" + breadth);
+		} else {
+			System.out.println("This is not a square!");
+		}
+	}
+}
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter length of the figure: ");
+		int length = sc.nextInt();
+
+		System.out.print("Enter breadth of the figure: ");
+		int breadth = sc.nextInt();
+		sc.close();
+		
+		figure.rectChecker(length, breadth);
+
+	}
+}
+
+---------------------------------------------------
+Ques.2. A shop will give discount of 10% if the cost of purchased quantity is more than 1000.
+Ask user for quantity
+Suppose, one unit will cost 100.
+Judge and print total cost for user.
+import java.util.Scanner;
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter quantity of articles: ");
+		int qty = sc.nextInt();
+		
+		int total = 100*qty;
+		
+		int discount = (10*total)/100;
+		
+		int amount = total-discount; 
+		
+		if (qty>10) {
+			System.out.println("After 10% discount and the amount you have to pay:- "+amount);
+		}
+		else {
+			System.out.println("You have to pay: "+total);
+		}
+	}
+
+---------------------------------------------------
+Ques.3. A company decided to give bonus of 5% to employee if his/her year of service is more than 5
+years.
+Ask user for their salary and year of service and print the net bonus amount.
+import java.util.Scanner;
+public class App {
+	public static void main(String[] args) {
+		int bonus=0;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter your monthly Salary: ");
+		int salary = sc.nextInt();
+		
+		System.out.println("Enter Year you joined the company: ");
+		int year = sc.nextInt();
+		
+		if(2023-year>=5) {
+			bonus=(salary*5/100);
+			System.out.println("Your salary is: "+(salary+bonus));
+		}else {
+			System.out.println("");
+			
+		}
+		
+	}
+
+}
+
+---------------------------------------------------
+Ques.4. A student will not be allowed to sit in exam if his/her attendence is less than 75%.
+Take following input from user
+Number of classes held
+Number of classes attended.
+And print
+percentage of class attended
+Is student is allowed to sit in exam or not.
+import java.util.Scanner;
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter classes Held: ");
+		double classesHeld = sc.nextInt();
+		
+		System.out.println("Enter classes you attended: ");
+		double classesAtd= sc.nextDouble();
+		
+		Double attendance=classesAtd/classesHeld*100;
+		System.out.println("Your attendance is: "+attendance);
+		
+		if(attendance>=75) {
+			System.out.println("You are allowed to sit in exams");
+		}else {
+			System.out.println("You are not allowed to sit in exams");
+		}
+		
+	}
+
+}
+
+---------------------------------------------------
+Ques.5. Write a program to find out whether a student is pass or fail; if it requires a total of 40% and at
+least 33% in each subject to pass. Assume 3 subjects and take marks as input from the user.
+import java.util.Scanner;
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Marks in Physics: ");
+		double physics=sc.nextDouble();
+		
+		System.out.println("Enter Marks in Chemistry: ");
+		double chemistry=sc.nextDouble();
+		
+		System.out.println("Enter Marks in Mathematics: ");
+		double mathematics=sc.nextDouble();
+		
+		double percentage=(((physics+chemistry+mathematics)/300)*100);
+		System.out.println("Your percentage is: "+percentage);
+		
+		if(percentage<40 || physics<=33 || chemistry<=33 || mathematics<33) {
+			System.out.println("You're Fail because you are not passed in all subjects");
+		}else {
+			System.out.println("You're pass");
+		}
+		
+	}
+
+}
+
+---------------------------------------------------
+Ques.6. Write a program in Java to display n terms of natural numbers and their sum
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int sum=0;
+		System.out.println("Enter upto: ");
+		int n = sc.nextInt();
+		
+		System.out.println("First "+n+" natural numbers: ");
+		for (int i = 1; i <= n; i++) {
+			System.out.println("Number: "+i);
+			sum=sum+i;
+		}
+		System.out.println("Sum of first "+n+" natural numbers is: "+sum);
+
+	}
+
+}
+
+---------------------------------------------------
+Ques.7. Write a program in Java to input 5 numbers from keyboard and find their sum and average.
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int arr[] = new int[5];
+
+		System.out.println("Enter five numbers: ");
+
+		int sum = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
+			sum = sum + arr[i];
+		}
+		System.out.println("Sum of these 5 numbers is: "+sum);
+		
+		int average=sum/arr.length;
+		System.out.println("Average of these 5 numbers is: "+average);
+
+	}
+
+}
+
+---------------------------------------------------
+Ques.8. Write a program in Java to display the cube of the number upto given an integer.
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+
+		for (int i = 1; i < n; i++) {
+			System.out.println(i+"'s cube: "+i*(i*i));
+		}
+
+	}
+
+}
+
+---------------------------------------------------
+Ques.9. Write a program in Java to display the multiplication table of a given integer.
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+
+		for (int i = 1; i < n; i++) {
+			System.out.println(i+"'s cube: "+i*(i*i));
+		}
+
+	}
+
+}
+
+---------------------------------------------------
+Ques.10. Write a program in Java to display the pattern like right angle triangle with a number. 
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+---------------------------------------------------
