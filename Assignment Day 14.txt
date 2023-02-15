@@ -1,0 +1,143 @@
+Prepared by:- Aman Kumar
+Q1. Write a program containing a possible exception. Use a try block to throw it and a catch block
+to handle it promptly.
+----------------------------------
+Ans. 1
+package day14;
+import java.util.Scanner;
+
+public class Checker {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+
+		System.out.println("Enter No. to divide it with: (except 0) ");
+		int n1 = sc.nextInt();
+		sc.close();
+		
+		try {
+
+			int result = n / n1;
+			System.out.println(result);
+
+		} catch (Exception e) {
+			System.out.println("Cannot divide by 0");
+			System.out.println(e);
+		}
+	}
+
+}
+
+----------------------------------
+Q2. Write a program that illustrates the application of multiple catch statements.
+package day14;
+import java.util.Scanner;
+Ans.
+public class Q2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("entervalue: ");
+		int check = sc.nextInt();
+		try {
+			int[] numbers = { 1, 2, 3 };
+			System.out.println(numbers[check]);
+		} catch (NumberFormatException e) {
+			System.out.println("Array out of bound");
+
+		} catch ( ArrayIndexOutOfBoundsException e) {
+			System.out.println("Exception");
+		}
+	}
+}
+
+----------------------------------
+Q3. Write a program that demonstrates how certain exception types are not allowed to be thrown.
+Ans- public class Assignment12
+{
+	public static void main(String[] args)
+    {
+    }
+	void check() throws RuntimeException{
+		FileReader fr=new FileReader("C:\Users\amakumar.BEBOTECHNOLOGIE\Desktop\New");
+        BufferedReader br=new BufferedReader(fr);
+        String str=br.readLine();
+	}
+}
+We cannot throw RuntimeException
+RuntimeException or unchecked exception we are getting the error
+filenotfoundexception which is a checked exception.
+unchecked exceptions can be thrown when we have any runtime exception.
+In technical terms,Exception is parent class of runtime exception
+Exception Hierarcy.)     Throwable-Exception-RuntimeException 
+
+
+----------------------------------
+Q4. Write a program to demonstrate the concept of re-throwing an exception.
+package day14;
+Ans.
+import java.util.Scanner;
+
+public class ReThrow {
+	public static void main(String[] args) {
+		try {
+			divideByZero();
+		} catch (ArithmeticException e) {
+			System.out.println("Divison by 0 Exception 1");
+		}
+	}
+
+	public static void divideByZero() throws ArithmeticException {
+		try {
+
+			Scanner sc = new Scanner(System.in);
+
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			sc.close();
+			
+			int r = a / b;
+			System.out.println(r);
+
+		} catch (ArithmeticException e) {
+			System.out.println("Divison by 0 Exception 2");
+			throw e;
+		}
+	}
+}
+
+----------------------------------
+Q5. You will be given two integers and as input, you have to compute x/y. If x and y are not 32 bit
+signed integers or if y is zero, exception will occur and you have to report it. Read sample
+Input/Output to know what to report in case of exceptions. 
+Ans.
+package day14;
+
+import java.util.Scanner;
+
+public class Check {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		try {
+			
+			System.out.println("Enter x: ");
+			int x = sc.nextInt();
+			
+			System.out.println("Enter y: ");
+			int y = sc.nextInt();
+		
+			int result = x / y;
+			
+			System.out.println(result);
+			
+		} catch (ArithmeticException e) {
+			System.out.println("Cannor divide by 0");
+		} catch (Exception e) {
+			System.out.println("Value is not a 32 bit signed integer ");
+		}
+	}
+
+}
+
+----------------------------------
